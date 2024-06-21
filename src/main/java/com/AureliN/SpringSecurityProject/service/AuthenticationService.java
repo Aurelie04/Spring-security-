@@ -1,6 +1,7 @@
 package com.AureliN.SpringSecurityProject.service;
 
 import com.AureliN.SpringSecurityProject.model.AuthenticationResponse;
+import com.AureliN.SpringSecurityProject.model.Role;
 import com.AureliN.SpringSecurityProject.model.User;
 import com.AureliN.SpringSecurityProject.repository.UserRepository;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -33,7 +34,7 @@ public class AuthenticationService {
         user.setLastName(request.getLastName());
         user.setUsername(request.getUsername());
         user.setPassword(passwordEncoder.encode(request.getPassword()));
-        user.setRole(user.getRole());
+        user.setRole(Role.USER);
         //Try and catch here
         user = repository.save(user);
 
