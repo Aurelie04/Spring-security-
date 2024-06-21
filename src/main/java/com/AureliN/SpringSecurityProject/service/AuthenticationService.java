@@ -61,10 +61,10 @@ public class AuthenticationService {
         //Try and catch here
         user = repository.save(user);
 
-        String token = jwtService.generateToken(user);
+        //String token = jwtService.generateToken(user);
 
-        return new AuthenticationResponse(token);
-
+        //return new AuthenticationResponse(token);
+        return new AuthenticationResponse("Registration Successful"); // Consider a more informative message
     }
 
     public AuthenticationResponse authenticate(User request){
