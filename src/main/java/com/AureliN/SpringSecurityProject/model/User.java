@@ -32,7 +32,7 @@ public class User implements UserDetails {
     private String password;
 
 
-    @Enumerated(value = EnumType.ORDINAL)
+    @Enumerated(value = EnumType.STRING)
    private Role role;
 
     public Integer getId() {

@@ -34,7 +34,30 @@ public class AuthenticationService {
         user.setLastName(request.getLastName());
         user.setUsername(request.getUsername());
         user.setPassword(passwordEncoder.encode(request.getPassword()));
-        user.setRole(Role.USER);
+
+        // Retrieve role from request (assuming it's a field in the request body)
+        String requestedRole = String.valueOf(request.getRole()); // Change "getRole" to match your request field name
+        // Validate role (optional)
+        if (requestedRole != null) {
+            boolean validRole = false;
+            for (Role role : Role.values()) {
+                if (role.name().equals(requestedRole)) {
+                    validRole = true;
+                    break;
+                }
+            }
+            if (validRole) {
+                user.setRole(Role.valueOf(requestedRole));
+            } else {
+                // Handle invalid role
+                throw new IllegalArgumentException("Invalid role provided");
+            }
+        } else {
+            // Handle missing role
+            throw new IllegalArgumentException("Role is required");
+        }
+
+        // user.setRole(Role.USER);
         //Try and catch here
         user = repository.save(user);
 
