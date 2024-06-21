@@ -29,6 +29,11 @@ public class AuthenticationService {
     }
 
     public AuthenticationResponse register(User request){
+        User existingUser = repository.findByUsername(request.getUsername()).orElse(null);
+        if (existingUser != null) {
+            // Handle username conflict (throw exception or return error message)
+            throw new IllegalArgumentException("Username already exists");
+        }
         User user = new User();
         user.setFirstName(request.getFirstName());
         user.setLastName(request.getLastName());
@@ -64,7 +69,7 @@ public class AuthenticationService {
         //String token = jwtService.generateToken(user);
 
         //return new AuthenticationResponse(token);
-        return new AuthenticationResponse("Registration Successful"); // Consider a more informative message
+        return new AuthenticationResponse("Registration Successful");
     }
 
     public AuthenticationResponse authenticate(User request){
