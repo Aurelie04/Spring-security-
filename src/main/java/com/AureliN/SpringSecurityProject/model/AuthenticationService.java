@@ -1,22 +1,21 @@
-package com.AureliN.SpringSecurityProject.service;
+package com.AureliN.SpringSecurityProject.model;
 
-import com.AureliN.SpringSecurityProject.model.AuthenticationResponse;
 import com.AureliN.SpringSecurityProject.model.Role;
 import com.AureliN.SpringSecurityProject.model.User;
 import com.AureliN.SpringSecurityProject.repository.UserRepository;
+import com.AureliN.SpringSecurityProject.service.AuthenticationResponse;
+import com.AureliN.SpringSecurityProject.service.JwtService;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-
-import java.util.Optional;
 
 @Service
 public class AuthenticationService {
 
     private final UserRepository repository;
 
-    private final PasswordEncoder passwordEncoder;
+    private final PasswordEncoder passwordEncoder;// Inject PasswordEncoder bean
     private final JwtService jwtService;
 
     private final AuthenticationManager authenticationManager;

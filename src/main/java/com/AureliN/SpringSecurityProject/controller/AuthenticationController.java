@@ -1,8 +1,8 @@
 package com.AureliN.SpringSecurityProject.controller;
 
-import com.AureliN.SpringSecurityProject.model.AuthenticationResponse;
+import com.AureliN.SpringSecurityProject.service.AuthenticationResponse;
 import com.AureliN.SpringSecurityProject.model.User;
-import com.AureliN.SpringSecurityProject.service.AuthenticationService;
+import com.AureliN.SpringSecurityProject.model.AuthenticationService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

@@ -1,4 +1,4 @@
-package com.AureliN.SpringSecurityProject.model;
+package com.AureliN.SpringSecurityProject.service;
 
 public class AuthenticationResponse {
 
